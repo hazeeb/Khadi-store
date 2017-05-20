@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+ <ion-grid>
+  <ion-row>
+    <ion-col>
+    <li *ngFor=let data of item>{{data}}</li>
+      <img (click)="openModal()" src="/assets/product1.jpg">
+      <p class="title">Khadi Casual Wear </p>
+      <span class="price">₹ 1289</span>
+      <span>  <ion-icon class="fav-icon" name="ios-heart-outline"></ion-icon></span>
+
+    </ion-col>
+    <ion-col>
+      <img src="/assets/product2.jpg">
+      <p class="title">Grey stripped Kurtis </p>
+      <span class="price">₹ 3999</span>
+      <span>  <ion-icon class="fav-icon" name="ios-heart-outline"></ion-icon></span>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+  <ion-col>
+      <img src="/assets/product3.jpg">
+    </ion-col>
+    <ion-col>
+      <img src="/assets/product4.jpg">
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>
