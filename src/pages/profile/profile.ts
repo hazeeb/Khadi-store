@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import * as firebase from 'firebase/app';
+import { AngularFireDatabase,FirebaseListObservable } from 'angularfire2/database';
+import { AuthProvider } from '../../providers/auth/auth';
+import { LoginPage} from '../login/login';
 
-/**
- * Generated class for the ProfilePage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 @IonicPage()
 @Component({
   selector: 'page-profile',
@@ -14,11 +12,54 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProfilePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  userId: any ;
+  database: any;
+  data: any;
+  name: string;
+  userDetails: any;
+  items: FirebaseListObservable<any[]>;
+
+
+  pet: string = "profile";
+
+  constructor(public navCtrl: NavController,public authData: AuthProvider, public navParams: NavParams, public af: AngularFireDatabase) {
+
+    this.userId = firebase.auth().currentUser.uid;
+    this.items = af.list('user');
+    console.log(this.items);
+
+
+    this.data = firebase.database().ref('users/' + this.userId).on('value',function(snapshot){
+        var userDetails = snapshot.val();
+        console.log(userDetails);
+      });
+   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
   }
 
+  logout(){
+    this.navCtrl.setRoot(LoginPage,{ tabsHideOnSubPages:"false"});
+    return this.authData.logoutUser();
+
+  }
+
+/*  getUserProfile(): Promise<any> {
+    return new Promise( (resolve, reject) => {
+      firebase.database().ref('/users')
+        .child(firebase.auth().currentUser.uid)
+        .on('value', data => {
+          resolve(data.val());
+          this.name = data.val().username;
+        });
+    });
+  }*/
+
+  write (){
+    let userId= this.userId;
+      firebase.database().ref('users/' + userId).set({
+        username: "hello"
+      });
+  }
 }

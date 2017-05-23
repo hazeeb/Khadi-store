@@ -1,22 +1,46 @@
+
 <ion-header>
-  <ion-toolbar>
+  <ion-navbar>
     <ion-title>
-      Description
+      Details
     </ion-title>
-    <ion-buttons start>
-      <button ion-button (click)="dismiss()">
-        <ion-icon name="md-close"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-toolbar>
+    <button (click)="goBack()">
+      <ion-icon name="ios-arrow-back-outline"></ion-icon>
+    </button>
+  </ion-navbar>
 </ion-header>
+
 <ion-content>
 
-  <ion-list>
-      <ion-item>
-        <ion-avatar item-start> 
-        </ion-avatar> 
-      </ion-item>
-       
-  </ion-list>
+  <img src="/assets/{{img}}">
+  <p style="text-align: center;font-size: 19px;">{{name}}</p>
+  <p style="text-align: center; font-size: 22px;color:#4a8bfc">₹ {{price}}</p>
+  <hr>
+  <div style="padding-left: 15px;">
+    <span class="color-btn" style="background: darkred"></span>
+    <span class="color-btn" style="background: green"></span>
+    <span class="color-btn" style="background: dodgerblue"></span>
+    <span class="color-btn" style="background: yellow"></span>
+    <span class="color-btn" style="background: grey"></span>
+  </div>
+  <hr>
+
+  <div style="padding: 10px;">
+    <span class="size-btn"> XS </span>
+    <span class="size-btn"> S </span>
+    <span class="size-btn"> M </span>
+    <span class="size-btn"> L </span>
+    <span class="size-btn"> XL </span>
+  </div>
+  <hr>
+  <div style="padding:15px;">
+    <h5>Description</h5>
+    <p style="color:#757272;">- Simple Full Sleeves</p>
+    <p style="color:#757272;">- Casual fit that is true to size</p>
+  </div>
 </ion-content>
+<ion-footer no-shadow>
+  <ion-toolbar position="bottom">
+    <button ion-button full (click)="addToCart(selectedItem)">Add to cart</button>
+  </ion-toolbar>
+</ion-footer>

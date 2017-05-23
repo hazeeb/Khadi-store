@@ -1,18 +1,86 @@
-<!--
-  Generated template for the ProfilePage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>profile</ion-title>
+    <ion-title>
+      Account
+    </ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
+
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="pet">
+      <ion-segment-button value="profile">
+        Profile
+      </ion-segment-button>
+      <ion-segment-button value="ducklings">
+        My Orders
+      </ion-segment-button>
+      <ion-segment-button value="kittens">
+        Wishlist
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+  <ion-content>
+    <div [ngSwitch]="pet">
+      <ion-list *ngSwitchCase="'profile'">
+        <div class="main">
+          <div class="img">
+            <img src="assets/profile.png" class="profile-img" style="border-radius: 150px;">
+          </div>
+          <div>
+          </div>
+        </div>
+        <div class="profile-element">
+          <span><ion-icon name="ios-person-outline"></ion-icon></span>
+          <span class="text">Balu Pallam</span>
+        </div>
+        <div class="profile-element">
+          <span><ion-icon name="ios-mail-outline"></ion-icon></span>
+          <span class=text>Baalu@gmail.com</span>
+        </div>
+        <div class="profile-element">
+          <span><ion-icon name="ios-call-outline"></ion-icon></span>
+          <span class=text>8089874080</span>
+        </div>
+
+        <hr>
+        <button ion-button full (click)="logout()">Logout</button>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'kittens'">
+        <div style="display: flex;padding: 10px 10px 10px 30px;">
+          <div style="height: 110px;">
+            <img src="assets/product1.jpg" style="height:110px;width:130px">
+          </div>
+          <div style="height: 110px;padding-left:15px;">
+            <p class="title" style="font-size:18px;">Khadi casual wear</p>
+            <span style="color:dimgrey">Size: S</span>
+            <span style="padding-left:10px;color:dimgrey"> Color: Grey</span>
+            <p class="price">₹ 2555</p>
+          </div>
+        </div>
+    <hr>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'ducklings'">
+        <div style="display: flex;padding-left: 20px;">
+          <div style="float: left">
+            <p style="font-size: 17px;">08-Mar-2017</p>
+            <p style="color: #908c8c;">Order Id #SC1425</p>
+            <p style="color:#ff9800">Dispatched</p>
+          </div>
+        </div>
+        <hr>
+      </ion-list>
+    </div>
+  </ion-content>
+
 
 </ion-content>

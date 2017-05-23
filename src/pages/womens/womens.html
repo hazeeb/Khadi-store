@@ -1,0 +1,39 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Women's Wear
+    </ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let item of items;let i = index;">
+        <img (click)="openModal(i)" src="assets/{{item.img}}">
+        <p class="title">{{item.name}} </p>
+        <span class="price">₹ {{item.price}}</span>
+        <span>  <ion-icon class="fav-icon" name="ios-heart-outline"></ion-icon></span>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <img src="assets/product3.jpg">
+        <p class="title"> khadi casual wear </p>
+        <span class="price">₹ 547</span>
+        <span>  <ion-icon class="fav-icon" name="ios-heart-outline"></ion-icon></span>
+      </ion-col>
+      <ion-col>
+        <img src="assets/product4.jpg">
+        <p class="title"> Pleated Kurtis </p>
+        <span class="price">₹ 1299</span>
+        <span>  <ion-icon class="fav-icon" name="ios-heart-outline"></ion-icon></span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,10 +1,13 @@
 var item = [
 	{
-		name : 'khadi casual wear',
-		price:'1289'
+		name : 'Grey striped kurtis',
+		price:'1289',
+    img: 'product1.jpg'
 	},{
-		name: 'Grey striped kurtis',
-		price: '3999'
+		name: 'Khadi Sarees',
+		price: '3999',
+    img: 'product2.jpg'
 	}
-	]
-}
+	];
+
+export {item};

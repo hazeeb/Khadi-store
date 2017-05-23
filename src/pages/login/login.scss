@@ -1,0 +1,41 @@
+page-login {
+  text-align: center;
+  .toolbar-background-md {
+    background-color: #ffffff;
+  }
+  .header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before {
+    height :0;
+  }
+  .item-label-stacked .text-input-md, .item-label-floating .text-input-md {
+    text-align: center;
+    color: #4a8bfc;
+  }
+  form {
+    margin-bottom: 32px;
+    button {
+      margin-top: 20px;
+    }
+  }
+
+  p {
+    font-size: 0.8em;
+    color: #d2d2d2;
+  }
+
+  ion-label {
+    margin-left: 5px;
+  }
+
+  ion-input {
+    padding: 5px;
+  }
+
+  .invalid {
+    border-bottom: 1px solid #FF6153;
+  }
+
+  .error-message .item-inner {
+    border-bottom: 0 !important;
+  }
+
+}
